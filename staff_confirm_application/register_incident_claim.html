@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="staff-incident_1.css">
+    <link rel="stylesheet" href="header.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Report</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="icon">
+                <!-- <img src ="2.png"class = "companylogo"> -->
+                <h2 class="logo">Mobi</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="cust_login_home.html">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="services.html">SERVICE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+                <button class="logout">Log Out</button>
+            </div>
+        </div> 
+    </header>
+
+
+    <main>
+        <div class="search">
+            <input class="srch" type="search" name="" placeholder="Search Customer">
+            <a href="#"> <button class="btn">Search</button></a>
+        </div>
+
+        <h1 style="color:white">Incident Report</h1>
+        <form id="incident-form"> <!-- Form for incident report -->
+            <table class="incident-table">
+                <thead>
+                    <tr>
+                        <th>Vehicle Registration No.</th>
+                        <th>Incident Type</th>
+                        <th>Incident Date</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <!-- Unique IDs for form fields -->
+                        <td><input type="text" id="Vehicle_no" name="Vehicle_no" required></td> 
+                        <td><input type="text" id="incident-type" name="Incident_Type" required></td> <!-- Input field for type -->
+                        <td><input type="date" id="incident-date" name="Incident_Date" required></td> <!-- Input field for date -->
+                        <td><textarea id="description" name="Description" required></textarea></td> <!-- Textarea for description -->
+                        <td>Pending</td> <!-- Status is pending -->
+                        <td><button type="submit">Submit</button></td> <!-- Submit button -->
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </main>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('incident-form'); // Reference to the form element
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+    
+            // Collect form data
+            const vehicleNumber = document.getElementById('Vehicle_no').value;
+            const incidentType = document.getElementById('incident-type').value;
+            const incidentDate = document.getElementById('incident-date').value;
+            const description = document.getElementById('description').value;
+    
+            try {
+                // Send a POST request to the server with the form data
+                const response = await fetch('/register-incident', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', // Content-Type header to indicate JSON data
+                    },
+                    body: JSON.stringify({
+                        Vehicle_Number: vehicleNumber,
+                        Incident_Type: incidentType,
+                        Incident_Date: incidentDate,
+                        Description: description,
+                    }), // Convert the collected data to JSON
+                });
+    
+                if (!response.ok) {
+                    throw new Error(`Error registering incident: ${response.status} ${response.statusText}`);
+                }
+    
+                if(response.ok){
+                alert("Incident registered successfully!");
+                window.location.href = "claim_amount.html";
+            }
+                // Optionally, redirect or clear the form
+                form.reset(); // Clear the form
+            } catch (error) {
+                console.error("Error submitting incident report:", error); // Log the error for debugging
+                alert("An error occurred while registering the incident. Please try again later."); // User-friendly error message
+            }
+        });
+    });
+    
+    </script>
+    </body>
+    </html>
+    

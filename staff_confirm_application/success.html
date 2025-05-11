@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Success</title>
+    <style>
+    body {
+        background-image: url('image7.jpg');
+        background-size: cover; /* Cover the entire viewport */
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+<<<<<<< HEAD:staff_confirm_application/success.html
+        background-image: url('/image7.jpg'); /* Path to your background image */
+        background-size: cover; /* Cover the entire viewport */
+=======
+      
+>>>>>>> 4cff8b5dd7623e5fc28aa63579fe3b55ec85088f:success.html
+    }
+    
+    .container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: orange; /* Light background with some opacity */
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+        
+        h1 {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin-right: 500px;
+            margin-left: 500px;
+            margin-top: 100px;  
+           
+            font-size: 30px; /* Increase font size */
+            color: #ffffff; /* Dark text color */
+        }
+        
+        h2 {
+            font-size: 1.5em; /* Increase font size */
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .customer-details {
+            background-color:rgb(0, 0, 0);
+            padding: 30px;
+            border: 10px black;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .details p {
+            margin: 10px 0; /* Increase margin for better readability */
+            font-size: 1.1em; /* Increase font size */
+            color: white;
+        }
+        
+        .details p strong {
+            margin-right: 15px;
+        }
+
+        .menu {
+           
+            width: 800px;
+           display: inline;;
+            height: 70px;
+            font-size: large;
+           
+        }
+
+        .up_bar {
+    display: inline-block;
+    padding: 15px 30px;
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    font-size: 15px; /* Adjust font size */
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    }
+
+
+    #home_id{
+        
+        margin-left: 500px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="menu">
+        <ul>
+            <a href="cust_login_home.html" class="up_bar" id="home_id">HOME</a>
+            <a href="custregister.html"class="up_bar">SIGN UP</a>
+            <a href="#"class="up_bar">ABOUT</a>
+            <a href="services.html"class="up_bar">SERVICE</a>
+            <a href="#"class="up_bar">CONTACT</a>
+        </ul>
+    </div>
+
+
+    <h1 style="color: white;border: 2px solid #ff7200;">Customer Details</h1>
+    
+<div class="container">
+   
+    <div class="customer-details">
+        <div class="details">
+            <p><strong>First Name:</strong> ${customer[0].Cust_FName}</p>
+            <p><strong>Last Name:</strong> ${customer[0].Cust_LName}</p>
+            <p><strong>Date of Birth:</strong> ${customer[0].Cust_DOB}</p>
+            <p><strong>Gender:</strong> ${customer[0].Cust_Gender}</p>
+            <p><strong>Address:</strong> ${customer[0].Cust_Address}</p>
+            <p><strong>Mobile Number:</strong> ${customer[0].Cust_MOB_Number}</p>
+            <p><strong>Email:</strong> ${customer[0].Cust_Email}</p>
+            <p><strong>Passport Number:</strong> ${customer[0].Cust_Passport_Number}</p>
+            <p><strong>Marital Status:</strong> ${customer[0].Cust_Marital_Status}</p>
+            <p><strong>PPS Number:</strong> ${customer[0].Cust_PPS_Number}</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

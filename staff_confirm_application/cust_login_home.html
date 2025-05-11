@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" />
+    <title>Plans</title>
+
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #policy_id{
+            margin-top: 80px;
+            margin-left: 635px;
+           padding:40px;
+           background-color: #eaff00;
+           border-radius: 13px;
+           font-size: larger;
+           font-family: Arial, Helvetica, sans-serif;
+           
+
+        }        
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">Mobi</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="cust_login_home.html">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="services.html">SERVICE</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+                <button class="logout">Log Out</button>
+            </div>
+        </div> 
+    </header>
+
+    <main>
+        <div class="greet">
+
+    
+
+            <div class="welc">Welcome,</div>
+            <div class="First-name" id="firstname"></div>
+        </div>
+        <div class="options">
+            <a href="/cust-vehicles.html">
+                <button>My Vehicles</button>
+            </a>
+           
+            <div class="dropdown">
+            <button>Incidents</button>
+            <div class="dropdown-content">
+                <a href="register_incident_claim.html">Register Incident </a>
+                <a href="incidenthistory.html"> Incident History Report</a>
+            </div>
+        </div>
+            <a href="/viewReceipt.html">
+                <button>Receipts</button>
+            </a>
+
+            <!-- Dropdown menu for multiple policy options -->
+            <div class="dropdown">
+                <button>My Policies</button>
+                <div class="dropdown-content">
+                    <a href="viewPolicy.html">View Policies</a>
+                    <a href="register_vehicle.html">Create Policy</a>
+                    
+                       
+                    
+                </div>
+            </div>
+
+            <a href="claim_history.html">
+                <button>Claim History</button>
+            </a>
+        </div>
+        <a href = "policy_renew_details.html">
+            <button id="policy_id">Policy-Renewal</button>
+        </a> 
+        </main>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Fetch the first name
+                fetch("/firstname")
+                .then(res => res.json())
+                .then(data => {
+                    // Update the content with the fetched first name
+                    const firstNameElement = document.getElementById('firstname');
+                    if (firstNameElement) {
+                        firstNameElement.textContent = data.result.Cust_FName; // Assuming 'firstName' is the key in the fetched data
+                    }
+                })
+                .catch(console.error);
+            });
+        </script>
+    
+</body>
+</html>

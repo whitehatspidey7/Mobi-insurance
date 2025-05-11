@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- <link rel="stylesheet" href="staff-home.css"> -->
+<meta charset="UTF-8">
+<link rel="stylesheet" href="header.css">
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Options</title>
+<style>
+
+*{
+            margin: 0;
+            padding: 0;
+ }
+
+        body {
+            background-image: url('image7.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }
+
+        main {
+            width: 100%;
+            margin-top: 50px;
+            flex-grow: 1; /* Expand to fill remaining vertical space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+
+    body {
+        background-image: url('image7.jpg');    
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        /* background-color: #f5f5f5; */
+    }
+    .container {
+    
+        padding: 200px;
+        margin-left: 20px;
+        /* background-color: #ff7200; */
+        
+    }
+
+    nav_bar{
+        margin-right: 300px;
+        margin-top: 50px;
+    }
+    
+
+    .up_bar {
+    display: inline-block;
+    padding: 20px 30px;
+    color: #ffffff; /* White text color */
+    font-weight: bold;
+    font-size: 15px; /* Adjust font size */
+    font-family:Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    margin-left: 10px;
+    }
+
+    h2{
+        margin-top: -10px;
+        color:orange;
+        margin-left: 50px;
+        font-size: xx-large;
+    }
+
+
+    
+    .butt_c {
+        height: 120px;
+        width: 200px;
+        background-color: rgb(255, 255, 255);
+        border: 30px white;
+        border-radius: 25px;
+        padding: 2px;
+        margin-right: 20px;
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: orange;  
+        background-color: #ff7200;
+     transition: background-color 0.3s ease; /* Add transition effect */
+    /* Your existing styles */
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+         border:7px solid white;
+         
+        }
+        
+        .butt_c a{
+            text-decoration: none;
+            color: white;
+            /* padding: 100px; */
+    }
+    .butt_c:hover {
+        background-color: rgb(171, 29, 21); /* Change background color on hover */
+    }
+
+    .profile_button{
+
+    font-size: larger;
+    }
+
+    .menu
+    {
+        margin-left: 200px;
+        margin-top: 20px;
+        /* background-color: black; */
+    }
+
+    .main{
+
+        /* background-color: black; */
+        background-size: cover;
+
+    }
+
+    .up_bar{
+        border-color: white;
+    }
+
+    .up_bar:hover {
+    background-color: #333;
+}
+
+.profile_button {
+    cursor: pointer;
+}
+
+.profile_button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 1300px; 
+    margin-top: -85px;
+}
+
+.logo{
+  margin-left: -100px;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="icon">
+                <!-- <img src ="2.png"class = "companylogo"> -->
+                <h2 class="logo">Mobi</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="staff-home.html">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="services.html">SERVICE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+                <button class="logout"><a href="staff-home.html"></a>Log Out</button>
+            </div>
+        </div> 
+    </header>
+
+
+    <div class="container">
+
+        <button class="butt_c"><a href="customer_details.html">Customer Details</a></button>
+        <button class="butt_c"><a href="staff-incident.html">Incident Approval</a></button>
+        <button class="butt_c"><a href="incidenthistory.html">Incident Report</a></button>
+    </div>
+
+</body>
+</html>

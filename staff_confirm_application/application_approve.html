@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="confirm.css">
+    <link rel="stylesheet" href="header.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Approval</title>
+    <style>
+
+*{
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url('image7.jpg');
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: center; /* Center horizontally */
+            align-items: center;
+        }
+
+        main {
+            width: 100%;
+            margin-top: 50px;
+            flex-grow: 1; /* Expand to fill remaining vertical space */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="icon">
+                <!-- <img src ="2.png"class = "companylogo"> -->
+                <h2 class="logo">Mobi</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><button class="home"onclick="gohome()">HOME</button></li>
+                    <li><button class="ABOUT"onclick="goabout()">ABOUT</button></li>
+                    <li><a href="services.html">SERVICE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+                <button class="logout">Log Out</button>
+            </div>
+        </div> 
+    </header>
+
+    <main>
+        <!-- <div class="search">
+            <input class="srch" type="search" name="" placeholder="Search Customer">
+            <button class="btn">Search</button>
+        </div> -->
+    
+        <table class="application-table">
+            <thead>
+                <tr>
+                    <th class="app-id">Application Id</th>
+                    <th class="app-cid">Customer ID</th>
+                    <th class="app-vid">Vehicle Id </th>
+                    <th class="app-pid">Product Id</th>
+                    <th class="app-clvl">Coverage Levelt</th>
+                    <th class="app-state"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="app-id-info">1</td>
+                    <td class="app-cid-info">1</td>
+                    <td class="app-vid-info">69</td>
+                    <td class="app-pid-info">5</td>
+                    <td class="app-clvl-info">High</td>
+                    <td class="app-state-btn">
+                        <button class="app-state-btn-a">Accept</button>
+                        <button class="app-state-btn-r">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <script>
+        function gohome() {
+            window.location.href = "staff-home.html";
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const acceptButtons = document.getElementsByClassName('app-state-btn-a');
+            const rejectButtons = document.getElementsByClassName('app-state-btn-r');
+
+            Array.from(acceptButtons).forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const row = button.closest('tr');
+                    row.querySelector('.app-info:last-child').textContent = 'ACCEPTED';
+                    row.style.backgroundColor = '#c8e6c9'; // light green
+                });
+            });
+
+            Array.from(rejectButtons).forEach(function(button) {
+                button.addEventListener('click', function() {
+                    const row = button.closest('tr');
+                    row.querySelector('.app-info:last-child').textContent = 'REJECTED';
+                    row.style.backgroundColor = '#ffcdd2'; // light red
+                });
+            });
+        });
+        function updateStatus(appId, status) {
+            fetch('/update-status', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ appId: parseInt(appId), status: status })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message);
+                const row = document.querySelector(`.app-id-info:contains("${appId}")`).parentNode;
+                row.querySelector('.app-state-btn').innerHTML = status;
+                row.style.backgroundColor = status === 'ACCEPTED' ? '#c8e6c9' : '#ffcdd2';
+            })
+            .catch(error => console.error('Error updating application status:', error));
+        }
+    
+    </script>
+</body>
+</html>
