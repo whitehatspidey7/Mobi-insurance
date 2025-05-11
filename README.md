@@ -1,7 +1,6 @@
-# Mobi-Insurance
-This repository contains the files for DBMS project
 
-#🔧 Features
+
+# Features
 🚗 Customer and Staff Login System
 
 📝 Incident & Claim Registration with Status Tracking
@@ -21,9 +20,11 @@ Backend: Node.js, Express.js
 
 Database: MySQL (with joins, stored procedures, and foreign keys)
 
-Authentication: Session-based (or JWT, if implemented)
+Authentication: JWT
 
 Architecture: Modular and RESTful API design
+
+
 In app.js run the following command:
 node app.js
 Open "http://localhost:8080/"
